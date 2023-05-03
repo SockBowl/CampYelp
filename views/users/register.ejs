@@ -1,0 +1,63 @@
+<% layout('layouts/boilerplate') %>
+<main class="container mt-4">
+  <div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="row w-100">
+      <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+        <div class="card shadow">
+          <img
+            src="https://res.cloudinary.com/dqsqsdvlc/image/upload/v1682527867/yelpcamp/harigovind-kaninghat-tCz_QiqHbFg-unsplash_g0e1gq.jpg"
+            class="card-img-top"
+            crossorigin="anonymous"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center">Register</h5>
+            <form
+              action="/register"
+              method="POST"
+              class="validated-form"
+              novalidate
+            >
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  name="username"
+                  autofocus
+                  required
+                />
+                <div class="valid-feedback">looks good!</div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                />
+                <div class="valid-feedback">looks good!</div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  required
+                />
+                <div class="valid-feedback">looks good!</div>
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-success">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
