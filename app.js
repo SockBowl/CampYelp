@@ -136,7 +136,6 @@ app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
 
 app.get('/', (req, res) => {
-  console.log(req);
   res.render('home');
 });
 
