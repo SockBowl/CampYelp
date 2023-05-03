@@ -40,11 +40,13 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize());
 
+const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
+
 const store = MongoStore.create({
   mongoUrl: process.env.DB_URL,
   touchAfter: 24 * 60 * 60,
   crypto: {
-    secret: 'thisshouldbeabettersecret!'
+    secret: secret
   }
 });
 
@@ -54,7 +56,7 @@ store.on('error', (e) => {
 
 const sessionConfig = {
   store: store,
-  secret: 'thisshouldbeabettersecret!',
+  secret: secret,
   name: 'CampFinder',
   resave: false,
   saveUninitialized: true,
@@ -146,6 +148,8 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render('error', { message });
 });
 
+const port = process.env.PORT || 3000;
+
 app.listen(3000, () => {
-  console.log('Listening on port 3000');
+  console.log(`Listening on port ${port}`);
 });
